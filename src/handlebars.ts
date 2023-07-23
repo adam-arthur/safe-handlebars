@@ -7,8 +7,8 @@
 // https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require
 import Handlebars from 'handlebars';
 
-import type { CompileOptions, RuntimeOptions, TemplateDelegate } from './types';
-import { ElasticHandlebarsVisitor } from './visitor';
+import type { CompileOptions, RuntimeOptions, TemplateDelegate } from './types.js';
+import { ElasticHandlebarsVisitor } from './visitor.js';
 
 const originalCreate = Handlebars.create;
 

@@ -4,9 +4,9 @@
  */
 
 // @ts-expect-error: Could not find a declaration file for module
-import { createFrame } from 'handlebars/dist/cjs/handlebars/utils';
+import { createFrame } from 'handlebars/dist/cjs/handlebars/utils.js';
 
-import type { AmbiguousHelperOptions, DecoratorOptions } from './types';
+import type { AmbiguousHelperOptions, DecoratorOptions } from './types.js';
 
 export function isBlock(node: hbs.AST.Node): node is hbs.AST.BlockStatement {
   return 'program' in node || 'inverse' in node;

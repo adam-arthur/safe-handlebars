@@ -3,7 +3,7 @@
     "outDir": "dist",
     "target": "ES2021",
     "esModuleInterop": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "strict": true,
   },

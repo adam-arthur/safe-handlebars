@@ -8,13 +8,13 @@ import {
   createProtoAccessControl,
   resultIsAllowed,
   // @ts-expect-error: Could not find a declaration file for module
-} from "handlebars/dist/cjs/handlebars/internal/proto-access";
+} from "handlebars/dist/cjs/handlebars/internal/proto-access.js";
 // @ts-expect-error: Could not find a declaration file for module
-import AST from "handlebars/dist/cjs/handlebars/compiler/ast";
+import AST from "handlebars/dist/cjs/handlebars/compiler/ast.js";
 // @ts-expect-error: Could not find a declaration file for module
-import { indexOf, createFrame } from "handlebars/dist/cjs/handlebars/utils";
+import { indexOf, createFrame } from "handlebars/dist/cjs/handlebars/utils.js";
 // @ts-expect-error: Could not find a declaration file for module
-import { moveHelperToHooks } from "handlebars/dist/cjs/handlebars/helpers";
+import { moveHelperToHooks } from "handlebars/dist/cjs/handlebars/helpers.js";
 
 import type {
   AmbiguousHelperOptions,
@@ -35,8 +35,8 @@ import type {
   Template,
   TemplateDelegate,
   VisitorHelper,
-} from "./types";
-import { kAmbiguous, kHelper, kSimple } from "./symbols";
+} from "./types.js";
+import { kAmbiguous, kHelper, kSimple } from "./symbols.js";
 import {
   initData,
   isBlock,
@@ -44,7 +44,7 @@ import {
   noop,
   toDecoratorOptions,
   transformLiteralToPath,
-} from "./utils";
+} from "./utils.js";
 
 export class ElasticHandlebarsVisitor extends Handlebars.Visitor {
   private env: typeof Handlebars;
