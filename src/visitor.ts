@@ -99,7 +99,12 @@ export class ElasticHandlebarsVisitor extends Handlebars.Visitor {
       partials: {},
       decorators: {},
       strict(obj, name, loc) {
-        if (!obj || !(name in obj)) {
+        const isInvalidProperty = (
+          !obj ||
+          (typeof obj === 'string' && name !== 'length') || // 'length' is the only valid data property on string primitives
+          (typeof obj === 'object' && !(name in obj))
+        );
+        if (isInvalidProperty) {
           throw new Handlebars.Exception(
             '"' + name + '" not defined in ' + obj,
             {
@@ -809,6 +814,11 @@ export class ElasticHandlebarsVisitor extends Handlebars.Visitor {
     // @ts-expect-error strict is not a valid property on PathExpression, but we used in the same way it's also used in the original handlebars
     const requireTerminal = this.compileOptions.strict && path.strict;
     const len = path.parts.length - (requireTerminal ? 1 : 0);
+
+    // Early exit with object itself when expression is `this`
+    if (path?.original === 'this') {
+      return obj;
+    }
 
     for (let i = 0; i < len; i++) {
       obj = this.container.lookupProperty(obj, path.parts[i]);
